@@ -1,0 +1,14 @@
+[
+  {
+    "title": "駅案内",
+    "data": "./signage/station.json"
+  },
+  {
+    "title": "列車内案内",
+    "data": null
+  },
+  {
+    "title": "避難誘導",
+    "data": null
+  }
+]

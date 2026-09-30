@@ -1,0 +1,93 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: #f4efe4;
+  color: #263238;
+  touch-action: manipulation;
+}
+
+* { box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body { background: #f4efe4; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+[hidden] { display: none !important; }
+
+.menu-screen {
+  width: 100%; height: 100%; overflow-y: auto;
+  display: grid; place-items: center;
+  padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom));
+  background: linear-gradient(#f8f4eb, #eee7da);
+}
+
+.menu-card { width: min(92vw, 560px); text-align: center; }
+.eyebrow { margin: 0 0 12px; font-size: 0.95rem; letter-spacing: .08em; opacity: .55; }
+
+.mode-button {
+  width: 100%; border: 1px solid rgba(40,50,55,.18); border-radius: 22px;
+  background: rgba(255,255,255,.94); color: #24313a;
+  box-shadow: 0 8px 22px rgba(40,35,25,.08); cursor: pointer;
+}
+.mode-button:active { transform: translateY(2px); }
+.mode-main { min-height: 132px; padding: 24px; }
+.mode-title { display: block; font-size: clamp(1.9rem, 7vw, 3rem); font-weight: 800; }
+.mode-note { display: block; margin-top: 8px; font-size: 1rem; opacity: .6; }
+.mode-folder { margin-top: 14px; min-height: 58px; font-size: 1.08rem; font-weight: 650; }
+.mode-story { margin-top: 24px; min-height: 54px; width: 74%; font-size: 1rem; opacity: .78; }
+
+.timing-box {
+  margin: 22px 0 0; padding: 13px 12px 15px;
+  border: 1px solid rgba(40,50,55,.18); border-radius: 16px;
+  background: rgba(255,255,255,.6); text-align: left;
+}
+.timing-box legend { padding: 0 8px; font-size: .9rem; font-weight: 700; }
+.timing-box label { display: inline-block; margin: 6px 14px 2px 0; font-size: .95rem; }
+.menu-status { min-height: 1.4em; margin: 12px 0 0; font-size: .82rem; opacity: .58; }
+
+.viewer { position: relative; width: 100%; height: 100%; background: #101214; overflow: hidden; }
+.main-image { width: 100%; height: 100%; object-fit: contain; background: #101214; }
+
+.home-button {
+  position: absolute; z-index: 20;
+  top: max(8px, env(safe-area-inset-top)); left: max(8px, env(safe-area-inset-left));
+  width: 42px; height: 42px; padding: 0; border: 1px solid rgba(255,255,255,.65);
+  border-radius: 50%; background: rgba(0,0,0,.36); color: white; font-size: 21px;
+}
+
+.peek {
+  position: absolute; z-index: 10; bottom: max(10px, env(safe-area-inset-bottom));
+  width: min(20vw, 132px); height: min(14vw, 88px); min-height: 58px;
+  padding: 0; border: 1px solid rgba(255,255,255,.65); border-radius: 12px;
+  overflow: hidden; background: rgba(0,0,0,.48); box-shadow: 0 4px 14px rgba(0,0,0,.28);
+  opacity: .78;
+}
+.peek-left { left: max(10px, env(safe-area-inset-left)); }
+.peek-right { right: max(10px, env(safe-area-inset-right)); }
+.peek img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.viewer[data-mode="story"] .peek img { object-fit: contain; }
+.page-dots { color: white; font-size: 12px; }
+.peek span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: white; font-size: 34px; font-weight: 800; text-shadow: 0 2px 5px #000;
+}
+
+.page-dots {
+  position: absolute; left: 50%; bottom: max(10px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+  z-index: 8; display: flex; gap: 6px; padding: 5px 8px; border-radius: 999px; background: rgba(0,0,0,.26);
+}
+.page-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.35); }
+.page-dots i.active { background: rgba(255,255,255,.95); }
+
+@media (orientation: portrait) {
+  .peek { width: 24vw; height: 17vw; }
+}
+
+/* 独立PWAのホーム */
+.menu-card { width: min(92vw, 600px); }
+h1 { font-size: clamp(1.5rem, 5vw, 2rem); margin: 0 0 20px; }
+.content-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px; max-height:36vh; overflow:auto; }
+.content-button { min-height:76px; padding:14px; font-weight:700; color:#234e70; }
+.content-button:disabled { opacity:.5; cursor:default; }
+.folder-entry { border-top:1px solid #bbc3c5; margin-top:18px; }
+.mode-folder { min-height:48px; margin-top:12px; }
+.timing-box { margin-top:16px; }
+.menu-screen { background:#edf1f4; } .mode-button { border-radius:8px; box-shadow:none; } .timing-box { border-radius:8px; }

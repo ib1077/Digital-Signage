@@ -1,0 +1,17 @@
+{
+  "title": "駅IC案内用サイネージ",
+  "pages": [
+    {
+      "image": "./images/station/ic-staff.png",
+      "speech": "交通系ICカードをタッチしてください。智頭線内では、交通系ICカードはご利用になれません。"
+    },
+    {
+      "image": "./images/station/ic-guide-01.png",
+      "speech": ""
+    },
+    {
+      "image": "./images/station/ic-guide-02.png",
+      "speech": ""
+    }
+  ]
+}
