@@ -17,6 +17,8 @@
   <main id="app">
     <section id="menu" class="menu-screen">
       <div class="menu-card">
+        <div class="update-tools"><span id="appVersion"></span><button id="updateButton" type="button">更新して再起動</button></div>
+        <p id="updateStatus" class="update-status" role="status" aria-live="polite"></p>
         <h1>案内サイネージ</h1>
         <div id="contentList" class="content-list"></div>
         <fieldset class="timing-box">
@@ -49,7 +51,9 @@
     </section>
   </main>
 
+  <script src="./version.js" defer></script>
   <script src="./app.js" defer></script>
+  <script src="./update.js" defer></script>
 </body>
 </html>
 
