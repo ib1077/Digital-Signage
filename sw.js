@@ -2,7 +2,7 @@
 importScripts("./version.js");
 const CACHE_NAME = "signage-pwa-v" + self.SIGNAGE_VERSION;
 const READY = new URL("./__offline_ready__", self.registration.scope).href;
-const SHELL = ["./index.html", "./app.js", "./update.js", "./version.js", "./style.css", "./manifest.webmanifest", "./catalog.json", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png"];
+const SHELL = ["./index.html", "./app.js", "./update.js", "./version.js", "./style.css", "./terminal.js", "./terminal.css", "./fares.js", "./terminal-config.json", "./manifest.webmanifest", "./catalog.json", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png"];
 const absolute = path => new URL(path, self.registration.scope).href;
 async function prepareCache() {
   const cache = await caches.open(CACHE_NAME);
@@ -25,6 +25,8 @@ async function prepareCache() {
       const data = await (await add(item.data)).json();
       for (const path of new Set((data.pages || data).map(p => p.image).filter(Boolean))) await add(path);
     }
+    const terminal = await (await cache.match(absolute("./terminal-config.json"))).json();
+    for (const path of terminal.assets || []) await add(path);
     await cache.put(READY, new Response(self.SIGNAGE_VERSION));
   } catch (error) {
     await caches.delete(CACHE_NAME); // Only this incomplete new version.
@@ -46,7 +48,9 @@ self.addEventListener("fetch", event => {
   if (event.request.method !== "GET" || !event.request.url.startsWith(self.registration.scope)) return;
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
-    const cached = event.request.mode === "navigate"
+    const url = new URL(event.request.url);
+    const isHome = url.pathname === new URL(self.registration.scope).pathname || url.pathname === new URL(absolute("./index.html")).pathname;
+    const cached = event.request.mode === "navigate" && isHome
       ? await cache.match(absolute("./index.html"))
       : await cache.match(event.request);
     return cached || fetch(event.request);

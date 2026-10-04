@@ -1,1 +1,1 @@
-globalThis.SIGNAGE_VERSION = "2.0.0";
+globalThis.SIGNAGE_VERSION = "2.1.0";

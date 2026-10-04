@@ -1,0 +1,7 @@
+{
+  "title": "ICカードのご案内",
+  "pages": [
+    {"image": "./images/station/ic-guide-01.png", "speech": ""},
+    {"image": "./images/station/ic-guide-02.png", "speech": ""}
+  ]
+}

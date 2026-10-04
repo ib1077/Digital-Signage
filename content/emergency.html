@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emergency Signage Demo ver0.0.2</title>
+
+<style>
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:sans-serif;
+}
+
+body{
+    background:#ffd400;
+}
+
+.screen{
+    display:none;
+    width:100vw;
+    height:100vh;
+
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    border:12px solid white;
+    box-sizing:border-box;
+}
+
+.active{
+    display:flex;
+}
+
+.flash{
+    animation:flash 1.2s infinite;
+}
+
+@keyframes flash{
+    0%,70%{
+        background:#ffd400;
+    }
+    75%,85%{
+        background:white;
+    }
+    100%{
+        background:#ffd400;
+    }
+}
+
+.warning{
+    font-size:4vw;
+    font-weight:bold;
+    color:#d00000;
+}
+
+.jp{
+    font-size:10vw;
+    font-weight:bold;
+    color:black;
+    margin:20px;
+}
+
+.en{
+    font-size:3vw;
+    color:#333;
+}
+
+.distance{
+    font-size:12vw;
+    font-weight:bold;
+    color:#006600;
+}
+
+.pict{
+    font-size:12vw;
+}
+
+.arrowRow{
+    display:flex;
+    gap:2vw;
+    margin:20px;
+}
+
+.arrow{
+    font-size:9vw;
+    color:#0044ff;
+    opacity:0.2;
+}
+
+.controls{
+    position:absolute;
+    right:10px;
+    top:10px;
+    z-index:999;
+}
+
+button{
+    font-size:20px;
+    padding:10px 20px;
+}
+
+</style>
+<!-- Embedded prototype: fit short landscape screens; original voice switch is a dummy. -->
+<style>
+.controls{display:none}
+.screen{border-width:6px}
+.warning{font-size:min(4vw,7vh)}
+.jp{font-size:min(10vw,16vh);margin:1vh 0}
+.en{font-size:min(3vw,5vh)}
+.distance,.pict{font-size:min(12vw,20vh)}
+.arrowRow{margin:1vh 0}
+.arrow{font-size:min(9vw,16vh)}
+</style>
+</head>
+
+<body>
+
+<div class="controls">
+<button id="soundBtn">🔊 Voice ON</button>
+</div>
+
+<!-- 画面1 -->
+
+<div class="screen active flash">
+
+<div class="warning">
+⚠ EMERGENCY
+</div>
+
+<div class="pict">
+🚶
+</div>
+
+<div class="arrowRow">
+<span class="arrow">⇒</span>
+<span class="arrow">⇒</span>
+<span class="arrow">⇒</span>
+<span class="arrow">⇒</span>
+<span class="arrow">⇒</span>
+</div>
+
+<div class="jp">
+避難経路
+</div>
+
+<div class="en">
+EVACUATION ROUTE
+</div>
+
+</div>
+
+<!-- 画面2 -->
+
+<div class="screen">
+
+<div class="warning">
+⚠ CAUTION
+</div>
+
+<div class="pict">
+🚇
+</div>
+
+<div class="jp">
+足元注意
+</div>
+
+<div class="en">
+WATCH YOUR STEP
+</div>
+
+</div>
+
+<!-- 画面3 -->
+
+<div class="screen">
+
+<div class="warning">
+⚠ EXIT
+</div>
+
+<div class="distance">
+200m
+</div>
+
+<div class="jp">
+トンネル出口
+</div>
+
+<div class="en">
+TUNNEL EXIT
+</div>
+
+</div>
+
+<!-- 画面4 -->
+
+<div class="screen">
+
+<div class="warning">
+⚠ WAIT HERE
+</div>
+
+<div class="pict">
+🧍
+</div>
+
+<div class="jp">
+広場で待機
+</div>
+
+<div class="en">
+PLEASE WAIT HERE
+</div>
+
+</div>
+
+<script>
+
+/* 画面切替 */
+
+const screens=document.querySelectorAll('.screen');
+let current=0;
+
+setInterval(()=>{
+
+screens[current].classList.remove('active');
+
+current=(current+1)%screens.length;
+
+screens[current].classList.add('active');
+
+},5000);
+
+/* 矢印流し */
+
+const arrows=document.querySelectorAll('.arrow');
+let pos=0;
+
+setInterval(()=>{
+
+arrows.forEach(a=>a.style.opacity='0.2');
+
+arrows[pos].style.opacity='1';
+
+pos++;
+
+if(pos>=arrows.length){
+    pos=0;
+}
+
+},200);
+
+/* 音声ボタン（ダミー） */
+
+let sound=true;
+
+document.getElementById("soundBtn").onclick=()=>{
+
+sound=!sound;
+
+document.getElementById("soundBtn").innerText=
+sound ? "🔊 Voice ON" : "🔇 Voice OFF";
+
+};
+
+</script>
+
+</body>
+</html>

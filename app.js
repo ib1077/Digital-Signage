@@ -266,6 +266,7 @@ async function showPage(index, token, autoAdvance = true) {
 }
 
 async function requestWakeLock() {
+  if (wakeLock && !wakeLock.released) return;
   if (!("wakeLock" in navigator) || document.visibilityState !== "visible") return;
   try {
     wakeLock = await navigator.wakeLock.request("screen");
@@ -283,11 +284,13 @@ async function startViewer(newPages, mode = APP_MODE) {
   playing = true;
   ui.menu.hidden = true;
   ui.viewer.hidden = false;
+  window.Terminal?.onViewerStart(newPages);
   await requestWakeLock();
   showPage(0, token, true);
 }
 
 function stopViewer() {
+  window.Terminal?.leave();
   playing = false;
   cancelPage();
   wakeLock?.release?.().catch(() => {});
@@ -299,9 +302,11 @@ function stopViewer() {
 
 async function openBuiltin(url) {
   primeSpeechFromUserGesture();
+  window.Terminal?.enterGesture();
   try {
     ui.menuStatus.textContent = "読み込み中…";
     const newPages = await loadJson(url);
+    if (window.Terminal && !window.Terminal.active) return;
     await startViewer(newPages, APP_MODE);
   } catch (e) {
     ui.menuStatus.textContent = e.message;
@@ -355,9 +360,8 @@ ui.nextBtn.addEventListener("click", () => {
 });
 
 document.addEventListener("visibilitychange", async () => {
-  if (document.visibilityState === "visible" && playing) {
+  if (document.visibilityState === "visible" && (playing || window.Terminal?.active)) {
     await requestWakeLock();
   }
 });
-
 

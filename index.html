@@ -11,22 +11,17 @@
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="icon" href="./icons/icon-192.png" type="image/png">
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./terminal.css">
   <title>案内サイネージ</title>
 </head>
 <body>
   <main id="app">
     <section id="menu" class="menu-screen">
       <div class="menu-card">
-        <div class="update-tools"><span id="appVersion"></span><button id="updateButton" type="button">更新して再起動</button></div>
-        <p id="updateStatus" class="update-status" role="status" aria-live="polite"></p>
+        <div class="management-tools"><button id="managementEntry" class="management-entry" type="button">係員メニュー</button></div>
         <h1>案内サイネージ</h1>
         <div id="contentList" class="content-list"></div>
-        <fieldset class="timing-box">
-          <legend>各画面の表示時間</legend>
-          <label><input type="radio" name="timing" value="5000"> 5秒</label>
-          <label><input type="radio" name="timing" value="10000" checked> 10秒</label>
-          <label><input type="radio" name="timing" value="speech"> 読み上げ終わるまで</label>
-        </fieldset>
+
 
         <div class="folder-entry"><button id="folderBtn" class="mode-button mode-folder" type="button">フォルダから読み込む</button></div>
         <input id="folderInput" type="file" webkitdirectory multiple hidden>
@@ -34,8 +29,17 @@
       </div>
     </section>
 
+    <section id="terminal" class="terminal" hidden>
+      <nav class="visitor-menu" aria-label="駅の情報">
+        <button type="button" data-section="guide" aria-pressed="true"><span aria-hidden="true">▧</span>案内</button>
+        <button type="button" data-section="ic" aria-pressed="false"><span aria-hidden="true">▣</span>IC</button>
+        <button type="button" data-section="timetable" aria-pressed="false"><span aria-hidden="true">◷</span>時刻表</button>
+        <button type="button" data-section="fare" aria-pressed="false"><span aria-hidden="true">¥</span>運賃</button>
+        <button type="button" data-section="emergency" aria-pressed="false"><span aria-hidden="true">↗</span>避難</button>
+      </nav>
+      <div class="terminal-stage">
     <section id="viewer" class="viewer" hidden>
-      <button id="homeBtn" class="home-button" type="button" aria-label="タイトルへ戻る">🏡</button>
+
       <img id="mainImage" class="main-image" alt="" draggable="false">
 
       <button id="prevBtn" class="peek peek-left" type="button" aria-label="前の画面" hidden>
@@ -49,10 +53,42 @@
 
       <div id="pageDots" class="page-dots" aria-hidden="true"></div>
     </section>
+      <section id="infoPanel" class="info-panel" hidden>
+        <h2 id="infoHeading" class="info-heading"></h2><div id="infoBody" class="info-body"></div>
+      </section>
+      <button id="staffTrigger" class="staff-trigger" type="button" aria-label="係員メニュー（2秒長押し）">···</button>
+      <div id="returnHint" class="return-hint" hidden>まもなく案内に戻ります · 触れると延長</div>
+      </div>
+    </section>
   </main>
+  <dialog id="staffDialog" class="staff-dialog" aria-labelledby="staffHeading">
+    <h2 id="staffHeading">係員メニュー</h2>
+    <div class="staff-actions">
+      <button id="homeBtn" class="home-button" type="button">🏡 HOME</button>
+      <button id="staffClose" type="button">閉じる</button>
+      <button id="staffFullscreen" type="button">全画面表示</button>
+      <button id="staffExitFullscreen" type="button">全画面解除</button>
+    </div>
+    <details><summary>設定</summary>
+        <fieldset class="timing-box">
+          <legend>各画面の表示時間</legend>
+          <label><input type="radio" name="timing" value="5000"> 5秒</label>
+          <label><input type="radio" name="timing" value="10000" checked> 10秒</label>
+          <label><input type="radio" name="timing" value="speech"> 読み上げ終わるまで</label>
+        </fieldset>
+      <label>案内へ戻るまで <select id="idleSetting"><option value="30000">30秒</option><option value="60000" selected>60秒</option><option value="120000">120秒</option></select></label>
+      <p class="staff-note">設定は今回の起動中のみ有効です。外部フォルダ読込はHOMEから操作します。</p>
+    </details>
+        <div class="update-tools"><span id="appVersion"></span><button id="updateButton" type="button">更新して再起動</button></div>
+        <p id="updateStatus" class="update-status" role="status" aria-live="polite"></p>
+    <p class="staff-note">情報端末の試作です。運賃は添付Excelの記載額で、大人・小児区分は未記載です。避難は距離・方向がサンプルのデモで、元HTMLの音声ボタンはダミーのため非表示です。時刻表は既存のレイアウト試作HTMLです。</p>
+    <p class="staff-note">表示中は右上の「···」を2秒長押しすると、このメニューを開けます。PIN認証は未実装です。</p>
+  </dialog>
 
   <script src="./version.js" defer></script>
   <script src="./app.js" defer></script>
+  <script src="./fares.js" defer></script>
+  <script src="./terminal.js" defer></script>
   <script src="./update.js" defer></script>
 </body>
 </html>

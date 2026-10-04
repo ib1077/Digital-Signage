@@ -1,0 +1,9 @@
+{
+  "idleReturnMs": 60000,
+  "staffHoldMs": 2000,
+  "icData": "./signage/ic.json",
+  "timetable": {"url": "./content/timetable.html", "title": "時刻表 · レイアウト試作"},
+  "fare": {"data": "./content/fares.json"},
+  "emergency": {"url": "./content/emergency.html"},
+  "assets": ["./signage/ic.json", "./content/timetable.html", "./content/fares.json", "./content/emergency.html"]
+}

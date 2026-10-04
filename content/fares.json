@@ -1,0 +1,630 @@
+{
+  "source": {
+    "file": "運賃.xlsx",
+    "sheet": "智頭線",
+    "stationRange": "C3:P16",
+    "note": "駅名は対角線上の記載を採用。大人・小児区分、適用日は元資料に記載なし。"
+  },
+  "stations": [
+    {
+      "id": "0",
+      "name": "智頭",
+      "sourceCell": "C3"
+    },
+    {
+      "id": "1",
+      "name": "恋山形",
+      "sourceCell": "D4"
+    },
+    {
+      "id": "2",
+      "name": "山郷",
+      "sourceCell": "E5"
+    },
+    {
+      "id": "3",
+      "name": "あわくら",
+      "sourceCell": "F6"
+    },
+    {
+      "id": "4",
+      "name": "西粟倉",
+      "sourceCell": "G7"
+    },
+    {
+      "id": "5",
+      "name": "大原",
+      "sourceCell": "H8"
+    },
+    {
+      "id": "6",
+      "name": "宮本武蔵",
+      "sourceCell": "I9"
+    },
+    {
+      "id": "7",
+      "name": "石井",
+      "sourceCell": "J10"
+    },
+    {
+      "id": "8",
+      "name": "平福",
+      "sourceCell": "K11"
+    },
+    {
+      "id": "9",
+      "name": "佐用",
+      "sourceCell": "L12"
+    },
+    {
+      "id": "10",
+      "name": "久崎",
+      "sourceCell": "M13"
+    },
+    {
+      "id": "11",
+      "name": "河野原",
+      "sourceCell": "N14"
+    },
+    {
+      "id": "12",
+      "name": "苔縄",
+      "sourceCell": "O15"
+    },
+    {
+      "id": "13",
+      "name": "上郡",
+      "sourceCell": "P16"
+    }
+  ],
+  "fares": [
+    {
+      "from": "0",
+      "to": "1",
+      "amount": 310,
+      "sourceCell": "C4"
+    },
+    {
+      "from": "0",
+      "to": "2",
+      "amount": 310,
+      "sourceCell": "C5"
+    },
+    {
+      "from": "1",
+      "to": "2",
+      "amount": 180,
+      "sourceCell": "D5"
+    },
+    {
+      "from": "0",
+      "to": "3",
+      "amount": 500,
+      "sourceCell": "C6"
+    },
+    {
+      "from": "1",
+      "to": "3",
+      "amount": 370,
+      "sourceCell": "D6"
+    },
+    {
+      "from": "2",
+      "to": "3",
+      "amount": 310,
+      "sourceCell": "E6"
+    },
+    {
+      "from": "0",
+      "to": "4",
+      "amount": 570,
+      "sourceCell": "C7"
+    },
+    {
+      "from": "1",
+      "to": "4",
+      "amount": 430,
+      "sourceCell": "D7"
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "amount": 370,
+      "sourceCell": "E7"
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "amount": 240,
+      "sourceCell": "F7"
+    },
+    {
+      "from": "0",
+      "to": "5",
+      "amount": 630,
+      "sourceCell": "C8"
+    },
+    {
+      "from": "1",
+      "to": "5",
+      "amount": 500,
+      "sourceCell": "D8"
+    },
+    {
+      "from": "2",
+      "to": "5",
+      "amount": 430,
+      "sourceCell": "E8"
+    },
+    {
+      "from": "3",
+      "to": "5",
+      "amount": 310,
+      "sourceCell": "F8"
+    },
+    {
+      "from": "4",
+      "to": "5",
+      "amount": 240,
+      "sourceCell": "G8"
+    },
+    {
+      "from": "0",
+      "to": "6",
+      "amount": 690,
+      "sourceCell": "C9"
+    },
+    {
+      "from": "1",
+      "to": "6",
+      "amount": 570,
+      "sourceCell": "D9"
+    },
+    {
+      "from": "2",
+      "to": "6",
+      "amount": 500,
+      "sourceCell": "E9"
+    },
+    {
+      "from": "3",
+      "to": "6",
+      "amount": 370,
+      "sourceCell": "F9"
+    },
+    {
+      "from": "4",
+      "to": "6",
+      "amount": 310,
+      "sourceCell": "G9"
+    },
+    {
+      "from": "5",
+      "to": "6",
+      "amount": 180,
+      "sourceCell": "H9"
+    },
+    {
+      "from": "0",
+      "to": "7",
+      "amount": 750,
+      "sourceCell": "C10"
+    },
+    {
+      "from": "1",
+      "to": "7",
+      "amount": 630,
+      "sourceCell": "D10"
+    },
+    {
+      "from": "2",
+      "to": "7",
+      "amount": 570,
+      "sourceCell": "E10"
+    },
+    {
+      "from": "3",
+      "to": "7",
+      "amount": 430,
+      "sourceCell": "F10"
+    },
+    {
+      "from": "4",
+      "to": "7",
+      "amount": 370,
+      "sourceCell": "G10"
+    },
+    {
+      "from": "5",
+      "to": "7",
+      "amount": 310,
+      "sourceCell": "H10"
+    },
+    {
+      "from": "6",
+      "to": "7",
+      "amount": 240,
+      "sourceCell": "I10"
+    },
+    {
+      "from": "0",
+      "to": "8",
+      "amount": 880,
+      "sourceCell": "C11"
+    },
+    {
+      "from": "1",
+      "to": "8",
+      "amount": 750,
+      "sourceCell": "D11"
+    },
+    {
+      "from": "2",
+      "to": "8",
+      "amount": 690,
+      "sourceCell": "E11"
+    },
+    {
+      "from": "3",
+      "to": "8",
+      "amount": 570,
+      "sourceCell": "F11"
+    },
+    {
+      "from": "4",
+      "to": "8",
+      "amount": 430,
+      "sourceCell": "G11"
+    },
+    {
+      "from": "5",
+      "to": "8",
+      "amount": 370,
+      "sourceCell": "H11"
+    },
+    {
+      "from": "6",
+      "to": "8",
+      "amount": 310,
+      "sourceCell": "I11"
+    },
+    {
+      "from": "7",
+      "to": "8",
+      "amount": 240,
+      "sourceCell": "J11"
+    },
+    {
+      "from": "0",
+      "to": "9",
+      "amount": 950,
+      "sourceCell": "C12"
+    },
+    {
+      "from": "1",
+      "to": "9",
+      "amount": 810,
+      "sourceCell": "D12"
+    },
+    {
+      "from": "2",
+      "to": "9",
+      "amount": 750,
+      "sourceCell": "E12"
+    },
+    {
+      "from": "3",
+      "to": "9",
+      "amount": 630,
+      "sourceCell": "F12"
+    },
+    {
+      "from": "4",
+      "to": "9",
+      "amount": 570,
+      "sourceCell": "G12"
+    },
+    {
+      "from": "5",
+      "to": "9",
+      "amount": 500,
+      "sourceCell": "H12"
+    },
+    {
+      "from": "6",
+      "to": "9",
+      "amount": 430,
+      "sourceCell": "I12"
+    },
+    {
+      "from": "7",
+      "to": "9",
+      "amount": 370,
+      "sourceCell": "J12"
+    },
+    {
+      "from": "8",
+      "to": "9",
+      "amount": 240,
+      "sourceCell": "K12"
+    },
+    {
+      "from": "0",
+      "to": "10",
+      "amount": 1070,
+      "sourceCell": "C13"
+    },
+    {
+      "from": "1",
+      "to": "10",
+      "amount": 950,
+      "sourceCell": "D13"
+    },
+    {
+      "from": "2",
+      "to": "10",
+      "amount": 880,
+      "sourceCell": "E13"
+    },
+    {
+      "from": "3",
+      "to": "10",
+      "amount": 750,
+      "sourceCell": "F13"
+    },
+    {
+      "from": "4",
+      "to": "10",
+      "amount": 690,
+      "sourceCell": "G13"
+    },
+    {
+      "from": "5",
+      "to": "10",
+      "amount": 570,
+      "sourceCell": "H13"
+    },
+    {
+      "from": "6",
+      "to": "10",
+      "amount": 570,
+      "sourceCell": "I13"
+    },
+    {
+      "from": "7",
+      "to": "10",
+      "amount": 430,
+      "sourceCell": "J13"
+    },
+    {
+      "from": "8",
+      "to": "10",
+      "amount": 370,
+      "sourceCell": "K13"
+    },
+    {
+      "from": "9",
+      "to": "10",
+      "amount": 240,
+      "sourceCell": "L13"
+    },
+    {
+      "from": "0",
+      "to": "11",
+      "amount": 1190,
+      "sourceCell": "C14"
+    },
+    {
+      "from": "1",
+      "to": "11",
+      "amount": 1070,
+      "sourceCell": "D14"
+    },
+    {
+      "from": "2",
+      "to": "11",
+      "amount": 1010,
+      "sourceCell": "E14"
+    },
+    {
+      "from": "3",
+      "to": "11",
+      "amount": 880,
+      "sourceCell": "F14"
+    },
+    {
+      "from": "4",
+      "to": "11",
+      "amount": 750,
+      "sourceCell": "G14"
+    },
+    {
+      "from": "5",
+      "to": "11",
+      "amount": 690,
+      "sourceCell": "H14"
+    },
+    {
+      "from": "6",
+      "to": "11",
+      "amount": 630,
+      "sourceCell": "I14"
+    },
+    {
+      "from": "7",
+      "to": "11",
+      "amount": 570,
+      "sourceCell": "J14"
+    },
+    {
+      "from": "8",
+      "to": "11",
+      "amount": 500,
+      "sourceCell": "K14"
+    },
+    {
+      "from": "9",
+      "to": "11",
+      "amount": 370,
+      "sourceCell": "L14"
+    },
+    {
+      "from": "10",
+      "to": "11",
+      "amount": 240,
+      "sourceCell": "M14"
+    },
+    {
+      "from": "0",
+      "to": "12",
+      "amount": 1250,
+      "sourceCell": "C15"
+    },
+    {
+      "from": "1",
+      "to": "12",
+      "amount": 1130,
+      "sourceCell": "D15"
+    },
+    {
+      "from": "2",
+      "to": "12",
+      "amount": 1070,
+      "sourceCell": "E15"
+    },
+    {
+      "from": "3",
+      "to": "12",
+      "amount": 880,
+      "sourceCell": "F15"
+    },
+    {
+      "from": "4",
+      "to": "12",
+      "amount": 810,
+      "sourceCell": "G15"
+    },
+    {
+      "from": "5",
+      "to": "12",
+      "amount": 750,
+      "sourceCell": "H15"
+    },
+    {
+      "from": "6",
+      "to": "12",
+      "amount": 690,
+      "sourceCell": "I15"
+    },
+    {
+      "from": "7",
+      "to": "12",
+      "amount": 630,
+      "sourceCell": "J15"
+    },
+    {
+      "from": "8",
+      "to": "12",
+      "amount": 500,
+      "sourceCell": "K15"
+    },
+    {
+      "from": "9",
+      "to": "12",
+      "amount": 430,
+      "sourceCell": "L15"
+    },
+    {
+      "from": "10",
+      "to": "12",
+      "amount": 310,
+      "sourceCell": "M15"
+    },
+    {
+      "from": "11",
+      "to": "12",
+      "amount": 180,
+      "sourceCell": "N15"
+    },
+    {
+      "from": "0",
+      "to": "13",
+      "amount": 1320,
+      "sourceCell": "C16"
+    },
+    {
+      "from": "1",
+      "to": "13",
+      "amount": 1190,
+      "sourceCell": "D16"
+    },
+    {
+      "from": "2",
+      "to": "13",
+      "amount": 1130,
+      "sourceCell": "E16"
+    },
+    {
+      "from": "3",
+      "to": "13",
+      "amount": 1010,
+      "sourceCell": "F16"
+    },
+    {
+      "from": "4",
+      "to": "13",
+      "amount": 950,
+      "sourceCell": "G16"
+    },
+    {
+      "from": "5",
+      "to": "13",
+      "amount": 880,
+      "sourceCell": "H16"
+    },
+    {
+      "from": "6",
+      "to": "13",
+      "amount": 810,
+      "sourceCell": "I16"
+    },
+    {
+      "from": "7",
+      "to": "13",
+      "amount": 750,
+      "sourceCell": "J16"
+    },
+    {
+      "from": "8",
+      "to": "13",
+      "amount": 630,
+      "sourceCell": "K16"
+    },
+    {
+      "from": "9",
+      "to": "13",
+      "amount": 500,
+      "sourceCell": "L16"
+    },
+    {
+      "from": "10",
+      "to": "13",
+      "amount": 430,
+      "sourceCell": "M16"
+    },
+    {
+      "from": "11",
+      "to": "13",
+      "amount": 310,
+      "sourceCell": "N16"
+    },
+    {
+      "from": "12",
+      "to": "13",
+      "amount": 240,
+      "sourceCell": "O16"
+    }
+  ],
+  "displayNote": "添付資料の記載額です。大人・小児の区分と適用日は未記載です。",
+  "stationNote": "「あわくら」「河野原」など、駅名は元資料の表記です。"
+}
