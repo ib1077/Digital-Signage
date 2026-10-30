@@ -33,9 +33,7 @@
       <nav class="visitor-menu" aria-label="駅の情報">
         <button type="button" data-section="guide" aria-pressed="true"><span aria-hidden="true">▧</span>案内</button>
         <button type="button" data-section="ic" aria-pressed="false"><span aria-hidden="true">▣</span>IC</button>
-        <button type="button" data-section="timetable" aria-pressed="false"><span aria-hidden="true">◷</span>時刻表</button>
-        <button type="button" data-section="fare" aria-pressed="false"><span aria-hidden="true">¥</span>運賃</button>
-        <button type="button" data-section="emergency" aria-pressed="false"><span aria-hidden="true">↗</span>避難</button>
+        <button type="button" data-section="timetable" aria-pressed="false"><span aria-hidden="true">◷</span>時刻</button>
       </nav>
       <div class="terminal-stage">
     <section id="viewer" class="viewer" hidden>
@@ -81,13 +79,12 @@
     </details>
         <div class="update-tools"><span id="appVersion"></span><button id="updateButton" type="button">更新して再起動</button></div>
         <p id="updateStatus" class="update-status" role="status" aria-live="polite"></p>
-    <p class="staff-note">情報端末の試作です。運賃は添付Excelの記載額で、大人・小児区分は未記載です。避難は距離・方向がサンプルのデモで、元HTMLの音声ボタンはダミーのため非表示です。時刻表は既存のレイアウト試作HTMLです。</p>
+    <p class="staff-note">情報端末の試作です。時刻表は既存のレイアウト試作HTMLです。</p>
     <p class="staff-note">表示中は右上の「···」を2秒長押しすると、このメニューを開けます。PIN認証は未実装です。</p>
   </dialog>
 
   <script src="./version.js" defer></script>
   <script src="./app.js" defer></script>
-  <script src="./fares.js" defer></script>
   <script src="./terminal.js" defer></script>
   <script src="./update.js" defer></script>
 </body>

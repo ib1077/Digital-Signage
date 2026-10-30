@@ -98,11 +98,11 @@ window.Terminal = (() => {
     body.replaceChildren(frame);
   }
   async function select(name) {
-    if (!active) return;
+    if (!active || !["guide", "ic", "timetable"].includes(name)) return;
     const token = ++generation;
     mark(name);
     pausePlayback();
-    heading.textContent = {guide:"案内",ic:"ICカードのご案内",timetable:"時刻表",fare:"運賃",emergency:"避難表示 · 試作"}[name];
+    heading.textContent = {guide:"案内",ic:"ICカードのご案内",timetable:"時刻表"}[name];
     activity();
     try {
       const data = await configReady;
@@ -117,17 +117,6 @@ window.Terminal = (() => {
       } else if (name === "timetable") {
         heading.textContent = data.timetable.title;
         embed(data.timetable.url, data.timetable.title);
-      } else if (name === "emergency" && data.emergency?.url) {
-        heading.textContent = "避難表示 · デモ（距離・方向はサンプル）";
-        embed(data.emergency.url, "避難表示の試作");
-      } else if (name === "fare" && data.fare?.data) {
-        const response = await fetch(data.fare.data);
-        if (!response.ok) throw new Error("運賃データを取得できません");
-        const fares = await response.json();
-        if (token !== generation || !active) return;
-        FareView.render(body, fares);
-      } else {
-        message(name === "fare" ? "運賃のご案内" : "避難表示の試作", "準備中です");
       }
     } catch (error) {
       if (token === generation && active) message("表示できませんでした", "左の「案内」から戻れます。");

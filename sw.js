@@ -2,7 +2,7 @@
 importScripts("./version.js");
 const CACHE_NAME = "signage-pwa-v" + self.SIGNAGE_VERSION;
 const READY = new URL("./__offline_ready__", self.registration.scope).href;
-const SHELL = ["./index.html", "./app.js", "./update.js", "./version.js", "./style.css", "./terminal.js", "./terminal.css", "./fares.js", "./terminal-config.json", "./manifest.webmanifest", "./catalog.json", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png"];
+const SHELL = ["./index.html", "./app.js", "./update.js", "./version.js", "./style.css", "./terminal.js", "./terminal.css", "./terminal-config.json", "./manifest.webmanifest", "./catalog.json", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png", "./icons/apple-touch-icon.png"];
 const absolute = path => new URL(path, self.registration.scope).href;
 async function prepareCache() {
   const cache = await caches.open(CACHE_NAME);
