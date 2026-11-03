@@ -40,6 +40,12 @@
 
       <img id="mainImage" class="main-image" alt="" draggable="false">
 
+    </section>
+      <section id="infoPanel" class="info-panel" hidden>
+        <h2 id="infoHeading" class="info-heading"></h2><div id="infoBody" class="info-body"></div>
+      </section>
+      <footer class="playback-bar" aria-label="ページ操作">
+        <div class="page-controls">
       <button id="prevBtn" class="peek peek-left" type="button" aria-label="前の画面" hidden>
         <img id="prevThumb" alt="">
         <span>‹</span>
@@ -50,12 +56,10 @@
       </button>
 
       <div id="pageDots" class="page-dots" aria-hidden="true"></div>
-    </section>
-      <section id="infoPanel" class="info-panel" hidden>
-        <h2 id="infoHeading" class="info-heading"></h2><div id="infoBody" class="info-body"></div>
-      </section>
+        </div>
       <button id="staffTrigger" class="staff-trigger" type="button" aria-label="係員メニュー（2秒長押し）">···</button>
       <div id="returnHint" class="return-hint" hidden>まもなく案内に戻ります · 触れると延長</div>
+      </footer>
       </div>
     </section>
   </main>
@@ -80,7 +84,7 @@
         <div class="update-tools"><span id="appVersion"></span><button id="updateButton" type="button">更新して再起動</button></div>
         <p id="updateStatus" class="update-status" role="status" aria-live="polite"></p>
     <p class="staff-note">情報端末の試作です。時刻表は既存のレイアウト試作HTMLです。</p>
-    <p class="staff-note">表示中は右上の「···」を2秒長押しすると、このメニューを開けます。PIN認証は未実装です。</p>
+    <p class="staff-note">表示中は下部右端の「···」を2秒長押しすると、このメニューを開けます。PIN認証は未実装です。</p>
   </dialog>
 
   <script src="./version.js" defer></script>

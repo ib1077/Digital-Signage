@@ -34,3 +34,25 @@
 .return-hint { position:absolute; left:50%; transform:translateX(-50%); bottom:8px; z-index:22; border-radius:20px; padding:7px 16px; background:#203a4a; color:#fff; font-size:13px; white-space:nowrap; pointer-events:none; }
 @media (max-height:420px) { .visitor-menu { padding-top:6px; padding-bottom:6px; gap:4px; } .visitor-menu button { min-height:44px; font-size:13px; } .visitor-menu button span { font-size:19px; } }
 @media (orientation:portrait) { :root { --rail-width:64px; } .visitor-menu button { max-height:110px; font-size:13px; } }
+
+/* First layout trial: controls occupy their own row, never the content row. */
+.terminal-stage { display:grid; grid-template-rows:minmax(0,1fr) auto; overflow:hidden; }
+.terminal-stage .viewer,.terminal-stage .info-panel { grid-row:1; grid-column:1; min-height:0; height:100%; overflow:hidden; }
+.playback-bar { grid-row:2; display:flex; align-items:center; gap:12px; box-sizing:border-box; height:calc(76px + env(safe-area-inset-bottom)); padding:6px max(12px,env(safe-area-inset-right)) calc(6px + env(safe-area-inset-bottom)) 12px; background:#edf2f5; color:#294656; border-top:1px solid #c7d4dc; min-width:0; }
+.page-controls { flex:1; min-width:0; display:flex; align-items:center; justify-content:center; gap:24px; height:100%; }
+.playback-bar .peek { position:relative; inset:auto; transform:none; flex:0 1 120px; width:120px; height:100%; min-height:0; max-height:64px; opacity:1; border-radius:7px; background:#203a4a; box-shadow:none; }
+.playback-bar .peek img { object-fit:contain; }
+.playback-bar .peek span { font-size:28px; }
+.playback-bar .peek-left { order:0; }
+.playback-bar .page-dots { position:static; transform:none; order:1; flex-shrink:0; margin:0; background:#294656; padding:8px 12px; }
+.playback-bar .peek-right { order:2; }
+.playback-bar .staff-trigger { position:static; flex:0 0 44px; width:44px; height:44px; font-size:24px; }
+.playback-bar .return-hint { position:static; transform:none; flex:0 1 auto; white-space:normal; font-size:12px; padding:5px 8px; }
+.terminal[data-section="timetable"] .page-controls { visibility:hidden; }
+@media (max-height:500px) {
+  .playback-bar { height:calc(58px + env(safe-area-inset-bottom)); padding-top:4px; padding-bottom:calc(4px + env(safe-area-inset-bottom)); gap:8px; }
+  .page-controls { gap:14px; }
+  .playback-bar .peek { flex-basis:88px; width:88px; }
+  .playback-bar .return-hint { max-width:150px; font-size:10px; }
+}
+@media (max-width:600px) { .page-controls { gap:10px; } .playback-bar { padding-left:8px; padding-right:8px; gap:6px; } }
